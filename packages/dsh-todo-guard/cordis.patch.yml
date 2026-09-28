@@ -1,0 +1,16 @@
+# dsh-todo-guard bundle patch layer
+#
+# 这一层把插件挂进 profile：`dsh.profile.bundles` 里有本插件时，这份 patch
+# 会被自动合并，等于一条手写的 cordis.patch.yml 挂载行。
+#
+# 参数说明：
+#   disabled - 关掉整个守卫（默认 false）
+#   every    - 距上次 todo_write 超过多少个工作事件就提醒（默认 12，0 = 每次检查）
+#   cooldown - 一次提醒后至少再过多少轮才允许再提醒（默认 2，防刷屏）
+- insert:
+    - id: todo-guard
+      name: dsh-todo-guard
+      config:
+        disabled: false
+        every: 12
+        cooldown: 2
