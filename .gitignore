@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# build outputs
+packages/*/dist/
+
+# logs
+*.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
