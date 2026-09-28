@@ -1,0 +1,59 @@
+{
+  "name": "dsh-todo-guard",
+  "version": "0.1.0",
+  "description": "Task-list staleness guard for DeepSeek Harness: when the model stops updating its todo list but keeps working, the guard appends a short reminder before the next step so the list gets written back to the real progress. / 任务清单陈旧度守卫：模型建了清单却忘记回写时，在下一步之前自动追加一条提醒，让清单回到真实进度。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "todo",
+    "todo-list",
+    "task-list",
+    "checklist",
+    "guard",
+    "staleness",
+    "reminder",
+    "任务清单",
+    "待办",
+    "提醒"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-llm": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-session-projection": "^0.1.0-rc.6",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxlei2004/dsh-plugins.git",
+    "directory": "packages/dsh-todo-guard"
+  },
+  "homepage": "https://github.com/wxlei2004/dsh-plugins/tree/main/packages/dsh-todo-guard#readme",
+  "bugs": {
+    "url": "https://github.com/wxlei2004/dsh-plugins/issues"
+  }
+}
