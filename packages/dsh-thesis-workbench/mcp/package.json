@@ -1,0 +1,25 @@
+{
+  "name": "@dsh-thesis/spss-mcp",
+  "version": "0.1.0",
+  "description": "SPSS 论文分析 MCP server（零依赖 stdio）：list_variables / get_data / run_syntax / run_syntax_file / analyze。可独立用于 Codex、Claude Code、opencode 等任意 MCP 客户端。",
+  "type": "module",
+  "main": "./server.js",
+  "bin": {
+    "dsh-thesis-spss-mcp": "./server.js"
+  },
+  "files": [
+    "server.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "spss",
+    "statistics",
+    "deepseek-harness"
+  ]
+}

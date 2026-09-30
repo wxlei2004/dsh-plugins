@@ -1,0 +1,61 @@
+{
+  "name": "dsh-re-workbench",
+  "version": "0.1.0",
+  "description": "Reverse-engineering workbench for DeepSeek Harness: bridges IDA Pro (idalib headless or IDA GUI RPC) into the harness as mcp__ida__* tools, with an environment self-check. / 逆向分析工作台：把本机 IDA Pro 桥接进 DSH（idalib 无头或 IDA GUI RPC），工具以 mcp__ida__* 注册，自带环境自检。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./mcp": "./mcp/server.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "mcp",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "ida",
+    "ida-pro",
+    "idalib",
+    "reverse-engineering",
+    "mcp",
+    "disassembly",
+    "decompiler",
+    "逆向",
+    "反编译"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1",
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.6",
+    "@deepseek-ai/schemastery": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxlei2004/dsh-plugins.git",
+    "directory": "packages/dsh-re-workbench"
+  },
+  "homepage": "https://github.com/wxlei2004/dsh-plugins/tree/main/packages/dsh-re-workbench#readme",
+  "bugs": {
+    "url": "https://github.com/wxlei2004/dsh-plugins/issues"
+  }
+}

@@ -1,0 +1,9 @@
+# dsh-thesis-workbench：论文/实证分析工具（SPSS 执行 + OMS 结果 + 分析模板）
+# 插件内置独立 SPSS MCP server（mcp/server.js，零依赖 stdio），经 dsh-mcp-client 自动连接。
+#
+# 路径说明：SPSS 安装位置由插件自动探测（25-31 版本、Program Files / Program Files (x86)），
+# 需要覆盖时在 profile 自己的 cordis.patch.yml 里按 id 覆写 spssStats / spssPythonBat，
+# 或设置 SPSS_PATH / SPSS_PYTHON_BAT 环境变量。这里不写死机器路径。
+- insert:
+    - id: thesis-workbench
+      name: dsh-thesis-workbench

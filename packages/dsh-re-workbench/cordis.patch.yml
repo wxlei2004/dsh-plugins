@@ -1,0 +1,34 @@
+# dsh-re-workbench — 逆向分析工作台
+#
+# 通过 @deepseek-ai/dsh-mcp-client 把 IDA MCP 桥（mcp/server.js）接进 DSH 工具集。
+# 模型可用的工具会被命名为 mcp__ida__<原名>（如 mcp__ida__get_metadata）。
+#
+# 两种模式（server.js 自动选择）：
+#   idalib（默认）: env.RE_TARGET 指向待分析文件 → 无头分析，无需 IDA GUI
+#   gui（回退）   : RE_TARGET 为空 → 连 IDA 插件 RPC（需 IDA 开着并加载数据库）
+#
+# 切换目标：模型调 re_open 写入目标文件，随后重启本 MCP 实例
+# （re_open 会通过 ctx.scope 触发 DSH 重连；或重启 DSH 彻底生效）。
+#
+# 路径说明：mcp/server.js 用 baseUrl 解析到本包安装目录，不写死机器路径。
+# 如需覆盖 pythonPath / idaRpc，在 profile 自己的 cordis.patch.yml 里按 id 覆写。
+- insert:
+    - id: re-workbench
+      name: dsh-re-workbench
+
+    - id: re-workbench-ida-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        transport: stdio
+        serverName: "ida"
+        command: "node"
+        args:
+          - !!js "process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-re-workbench/package.json')), 'mcp', 'server.js')"
+        env:
+          RE_TARGET_FILE: !!js "process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:os').homedir(), '.dsh', 're-target.txt')"
+        toolCallTimeoutMs: 600000
+        reconnect:
+          enabled: true
+          initialDelayMs: 1000
+          maxDelayMs: 15000
+          maxAttempts: 10

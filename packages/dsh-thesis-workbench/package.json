@@ -1,0 +1,59 @@
+{
+  "name": "dsh-thesis-workbench",
+  "version": "0.1.0",
+  "description": "Thesis / empirical-analysis workbench for DeepSeek Harness: run SPSS syntax, one-shot common statistics (frequencies, descriptives, crosstabs, t-tests, ANOVA, correlation, regression), extract structured tables via OMS, and profile .sav variables. Ships a standalone zero-dependency SPSS MCP server. / 论文/实证分析工作台：SPSS 语法执行、常用统计一键跑、OMS 结构化结果提取、数据集变量摸底，自带独立零依赖 SPSS MCP server。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "mcp",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./mcp": "./mcp/server.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "spss",
+    "statistics",
+    "thesis",
+    "analysis",
+    "mcp",
+    "oms",
+    "questionnaire",
+    "论文",
+    "实证分析"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1",
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.6",
+    "@deepseek-ai/schemastery": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxlei2004/dsh-plugins.git",
+    "directory": "packages/dsh-thesis-workbench"
+  },
+  "homepage": "https://github.com/wxlei2004/dsh-plugins/tree/main/packages/dsh-thesis-workbench#readme",
+  "bugs": {
+    "url": "https://github.com/wxlei2004/dsh-plugins/issues"
+  }
+}

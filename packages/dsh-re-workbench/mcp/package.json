@@ -1,0 +1,25 @@
+{
+  "name": "@dsh-re/ida-mcp",
+  "version": "0.1.0",
+  "description": "IDA Pro 逆向 MCP 代理（零依赖 stdio）：ida-pro-mcp stdio 桥接 + 环境自检。供任意 MCP 客户端使用。",
+  "type": "module",
+  "main": "./server.js",
+  "bin": {
+    "dsh-re-ida-mcp": "./server.js"
+  },
+  "files": [
+    "server.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ida",
+    "ida-pro",
+    "reverse-engineering"
+  ]
+}
